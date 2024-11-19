@@ -26,4 +26,20 @@ public class MotorConfig {
         this.encoder_resolution = resolution;
         this.gear_ratio = gear_ratio;
     }
+
+    /**
+     * Constructs a new instance of <span style='font-weight:bold'>MotorConfig</span> with simple inputs
+     * @param id an identifier used in hardware-mapping
+     * @param direction the direction for the motor to spin when given a positive power
+     * @return an instance of <span style='font-weight:bold'>MotorConfig</span> with simplified values
+     */
+    public static MotorConfig simple(String id, DcMotorSimple.Direction direction) {
+        return new MotorConfig(
+                id,
+                direction,
+                DcMotor.ZeroPowerBehavior.FLOAT,
+                1,
+                1
+        );
+    }
 }
